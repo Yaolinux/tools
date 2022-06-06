@@ -1,0 +1,13 @@
+#!/bin/bash
+
+for DIR in ./*
+do
+    DIR_NAME=$(basename $DIR)
+
+    echo $DIR_NAME
+
+    mv $DIR_NAME/Pkgfile $DIR_NAME/build
+
+    sed -i -e "s/build()/do_build()/g" $DIR_NAME/build
+
+done
